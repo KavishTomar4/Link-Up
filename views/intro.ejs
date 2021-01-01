@@ -1,0 +1,415 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Link Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@600&family=Josefin+Sans&family=Nova+Flat&family=Oxygen:wght@700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+     <style>
+         body{
+             margin : 0 ;
+             
+             font-family: 'Lato', sans-serif;
+            
+           
+            
+             
+         }
+         header{
+             background: #66915d;
+             width : 100%;
+             height : 60px;
+             box-shadow: 0 8px 7px -6px black;
+         }
+        
+         #title-container{
+             display:flex;
+             flex-direction: row;
+             justify-content: center;
+             align-items: center;
+             text-align: center;
+         }
+         #title{
+             margin-top : 0.1em;
+             margin-left : 2em;
+             font-family: 'Source Code Pro', monospace;
+             font-size : 2.5em;
+             color : white;
+            
+             
+           
+
+         }
+         #content-container{
+             display: flex;
+             margin-top:3em;
+             flex-direction: row;
+             justify-content: flex-start;
+             align-items: center;
+         }
+         #info-container{
+             width :50%;
+             margin-top : 10em;
+             margin-left : 5em;
+             margin-right : 5em;
+             
+         }
+         #info-heading{
+             margin-bottom : 0.01em;
+             color : #404040;
+             font-size: 2em;
+         }
+         #info{
+            margin-top : 0.21em; 
+            font-size: 1.5em;
+            color : #666666;
+         }
+         #user-details-container{
+             
+            margin-left : 10em;
+            margin-top : 10em;
+            margin-right : 10em;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+
+         }
+         #username{
+             width : 115%;
+             height : 35px;
+             border-radius: 0.5em;
+             border: 0.5px solid  #66915d;
+            margin-left : 0.2em;
+             margin-bottom:1.5em;
+             font-size: 1em;
+             font-family: 'Lato', sans-serif;
+             
+            
+         }
+         #create-room{
+             
+            width : 10em;
+            height : 35px; 
+            background: #66915d;
+            border: 5px solid  #66915d;
+            border-radius:0.5em; 
+            margin-left : 10em;
+            font-family: 'Lato', sans-serif;
+            color : white;
+            font-size: 1em;
+
+         }
+         #join-room{
+            width : 10em;
+            height : 35px; 
+            background: #66915d;
+            border: 5px solid  #66915d;
+            border-radius:0.5em; 
+            margin-left : 4em;
+            font-family: 'Lato', sans-serif;
+            color : white;
+            font-size: 1em;
+
+         }
+         #room-code{
+
+            width : 115%;
+             height : 35px;
+             border-radius: 0.5em;
+             margin-left : 0.2em;
+             border: 0.5px solid  #66915d;
+            margin-left : 0.1em;
+             margin-bottom:1.5em;
+             font-size: 1em;
+             font-family: 'Lato', sans-serif;
+
+         }
+         #join-room-btn{
+
+            width : 10em;
+            height : 35px; 
+            background: #66915d;
+            border: 5px solid  #66915d;
+            border-radius:0.5em; 
+            margin-left : 15em;
+            font-family: 'Lato', sans-serif;
+            color : white;
+            font-size: 1em;
+
+         }
+         #create-room-form input:hover[type = "submit"]{
+
+            background: #92d498;
+            border: 5px solid  #92d498;
+         }
+
+
+         #join-room:hover{
+
+             background: #92d498;
+              border: 5px solid  #92d498;
+          }
+
+          #join-room-form input:hover[type = "submit"]{
+
+              background: #92d498;
+              border: 5px solid  #92d498;
+           } 
+
+           @media only screen and (max-width: 414px){
+
+            body
+            {
+            
+             margin : 0 ;
+             
+             font-family: 'Lato', sans-serif;
+            
+            }
+            header
+            {
+             background: #66915d;
+             width : 52.5em;
+             height : 120px;
+             box-shadow: 0 8px 7px -6px black;
+            }
+            #title-container
+            {
+             display:flex;
+             flex-direction: row;
+             justify-content: center;
+             align-items: center;
+             text-align: center;
+            }
+            #title{
+             margin-top : 0.1em;
+             margin-left : 0.4em;
+             font-family: 'Source Code Pro', monospace;
+             font-size : 4.5em;
+             color : white;
+            
+            }
+            #content-container{
+             display: flex;
+             margin-top: 3em;
+             
+           
+             flex-direction: column;
+             justify-content:center;
+             align-items: flex-start;
+         }
+         #info-container{
+             width :100%;
+             margin-top : 10em;
+             margin-left : 15em;
+             margin-right : 5em;
+             text-align: center;
+             
+         }
+         #info-heading{
+             margin-bottom : 0.01em;
+             color : #404040;
+             font-size: 3.5em;
+         }
+         #info{
+            margin-top : 0.21em; 
+            font-size: 2.7em;
+            color : #666666;
+         }
+         #create-room-form{
+             margin-left : 2em;
+             display: flex;
+             flex-direction: row;
+             justify-content: center;
+             align-items: center;
+         }
+         #username{
+             width : 115%;
+             height : 75px;
+             border-radius: 0.5em;
+             border: 0.5px solid  #66915d;
+            margin-left : 0.2em;
+             margin-bottom:1.5em;
+             font-size: 2em;
+             font-family: 'Lato', sans-serif;
+             
+            
+         }
+         #create-room{
+             
+            width : 10em;
+            height : 75px; 
+            background: #66915d;
+            border: 5px solid  #66915d;
+            border-radius:0.5em; 
+            margin-left : 3em;
+            font-family: 'Lato', sans-serif;
+            color : white;
+            font-size: 2em;
+
+         }
+         #OR{
+            color : #9c9c9c; 
+            margin-left: 6.3em;
+
+            font-size: 2em;
+             
+         }
+         #join-room{
+            width : 7.6em;
+            height : 75px; 
+            background: #66915d;
+            border: 5px solid  #66915d;
+            border-radius:0.5em; 
+            margin-left : 3.5em;
+            margin-bottom: 2em;
+            font-family: 'Lato', sans-serif;
+            color : white;
+            font-size: 2em;
+
+         }
+         #room-code{
+             width : 115%;
+             height : 75px;
+             border-radius: 0.5em;
+             border: 0.5px solid  #66915d;
+            margin-left : 0.2em;
+             margin-bottom:1.5em;
+             font-size: 2em;
+             font-family: 'Lato', sans-serif;
+             
+            
+         }
+         #join-room-btn{
+             
+             width : 10em;
+             height : 75px; 
+             background: #66915d;
+             border: 5px solid  #66915d;
+             border-radius:0.5em; 
+             margin-left : 3em;
+             font-family: 'Lato', sans-serif;
+             color : white;
+             font-size: 2em;
+ 
+          }
+       
+
+           }
+        
+        
+
+       
+         </style>
+
+     
+
+</head>
+<body>
+
+  <header>  
+  <div id = "title-container">
+      <h1 id = "title">Link Up</h1>
+      </div>
+      </header>
+     
+      <main>
+       
+            <div id = "content-container">
+            
+              <div id = "info-container">
+                 <h1 id = "info-heading">Chat with your friends in a temporary room</h1>
+                 <p id = "info">Link Up is a social media website which enables you to interact with your friends in a temporary room.</p>
+              </div>
+              
+              <div id = "user-details-container">
+              
+                <form action = "/createRoom" method = "POST" id = "create-room-form" class = "form">    
+                  
+                 <input type = "text" id = "username" placeholder="Username" name = "username" />
+                 <input type = "submit" value = "Create Room" id = "create-room"/>
+                  </form>
+                  <br/>
+                  <hr/>
+                  <p style = "color : #9c9c9c; margin-left: 3.3em;" id = "OR">OR</p>
+                 <div id = "join-room redirect">
+                    
+                     <button id = "join-room">Join Room </button>
+
+                     <form action = "/joinRoom" method = "POST" id = "join-room-form" class = "form">    
+                  
+                        <input type = "text" id = "username" placeholder="Username" name = "username" class = "joinName"/>
+                        <input type = "text" id = "room-code" placeholder="Room code" name = "roomcode"/>
+                        <input type = "submit" value = "Join Room" id = "join-room-btn"/>
+                         </form>
+
+                 </div>
+                
+                </div>
+            </div>
+          
+          </main>
+
+
+  
+ <script>
+    
+    
+    let joinRoomBtn = document.getElementById('join-room');
+
+    let createRoomBtn = document.getElementById('create-room');
+
+    createRoomBtn.addEventListener('click' , function(e){
+
+        if(document.getElementById('username').value == '')
+             {
+               e.preventDefault();
+              }
+
+      
+
+    });
+
+    let createRoomForm = document.getElementById('create-room-form');
+    let joinRoomForm = document.getElementById('join-room-form');
+
+    let joinRoomBtnReal = document.getElementById('join-room-btn');
+
+    joinRoomBtnReal.addEventListener('click' , function(e){
+
+       
+
+          
+
+              if(document.getElementsByClassName('joinName')[0].value == '' || document.getElementById('room-code').value == '')
+        {
+            e.preventDefault();
+        }
+ 
+      });
+
+
+
+    createRoomForm.style.display = 'block';
+    joinRoomForm.style.display = 'none';
+
+    joinRoomBtn.addEventListener('click' , function(e){
+
+        createRoomForm.style.display = 'none';
+    joinRoomForm.style.display = 'block';
+    document.getElementById('OR').style.display = 'none';
+    joinRoomBtn.style.display = 'none';
+
+
+    });
+
+
+
+
+
+ </script>       
+</body>
+</html>

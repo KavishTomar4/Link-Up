@@ -1,0 +1,1018 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@600&family=Josefin+Sans&family=Nova+Flat&family=Oxygen:wght@700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+    <style>
+         body{
+             margin : 0 ;
+             font-family: 'Lato', sans-serif;
+            
+           
+            
+             
+         }
+         header{
+             background: #66915d;
+             width : 100%;
+             height : 60px;
+             box-shadow: 0 8px 7px -6px black;
+         }
+        
+         #title-container{
+             display:flex;
+             flex-direction: row;
+             justify-content: center;
+             align-items: center;
+             text-align: center;
+         }
+         #title{
+             margin-top : 0.1em;
+             margin-left : 2em;
+             font-family: 'Source Code Pro', monospace;
+             font-size : 2.5em;
+             color : white;
+            
+        }
+        #content-container{
+            display : flex;
+            flex-direction : row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-top: 0.1em;
+        }
+    
+        #online-users
+        {
+            background : #c7c7c7;
+            margin-top : 2em;
+            margin-left : 10em;
+            min-height: 600px;
+            width : 15em;
+            text-align: center;
+        }
+        #display-users{
+            height : 500px;
+        }
+        #message-container{
+
+            display : flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+        }
+        #display-messages{
+            height : 615px;
+        }
+        #message{
+            margin-left : 2em;
+            height : 2.5em;
+            width : 50em;
+            border-radius: 0.5em;
+            border: 0.5px solid  #66915d;
+            font-family: 'Lato', sans-serif;
+        }
+        #Send-btn{
+            width : 8em;
+            height : 35px; 
+            background: #66915d;
+            border: 5px solid  #66915d;
+            border-radius:0.5em; 
+            
+            font-family: 'Lato', sans-serif;
+            color : white;
+            font-size: 1em;
+        }
+        #display-messages{
+
+             display: flex;
+             margin-top : 2em;
+             width : 55em;
+             overflow-y: scroll;
+             flex-direction: column;
+             justify-content: flex-start;
+             align-items: flex-start;
+             
+             
+
+
+        }
+        #user-diff{
+            display: flex;
+            width : 20em;
+            background: #e6e6e6;
+            border-radius: 3em;
+            border-radius: 1.5em;
+            margin-left: 2em;
+            margin-top: 0.5em;
+            word-break: break-word; 
+            
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+        
+            
+        }
+        #user-main{
+
+            display: flex;
+            width : 15em;
+            background:  #66915d;
+            border-radius: 3em;
+            border-radius: 1.5em;
+            margin-left: 35em;
+            color: white;
+
+            margin-top: 0.5em;
+            word-break: break-word; 
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+         
+        }
+      
+        #sended-message{
+            margin : 2em;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+           
+            
+
+        }
+        #recieved-message{
+            margin : 2em;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            
+        }
+        input#imageFile{
+            display: none;
+            
+        }
+        input#imageFile + label{
+           
+          margin-left : 1em;
+           
+        }
+        input#videoFile{
+            display: none;
+            
+        }
+      
+
+        #image-main{
+
+            display: flex;
+            width : 20em;
+            margin-top: 0.5em;
+            color : white;
+            margin-left : 30em;
+            
+            overflow-wrap: break-word;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+
+        }
+        #image-diff{
+
+            display: flex;
+            width : 20em;
+            margin-left: 2em;
+            margin-top: 0.5em;
+            overflow-wrap: break-word;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+
+        }
+        #video-main{
+            display: flex;
+            width : 20em;
+            margin-top: 0.5em;
+            
+            margin-left : 30em;
+            
+            overflow-wrap: break-word;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        #video-diff{
+
+            display: flex;
+            width : 20em;
+            margin-left: 2em;
+            margin-top: 0.5em;
+            overflow-wrap: break-word;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+
+        }
+        input#audioFile{
+            display: none;
+            
+        }
+        #audio-main{
+            display: flex;
+            width : 20em;
+            margin-top: 0.5em;
+            
+            margin-left : 30em;
+            
+            overflow-wrap: break-word;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        #audio-diff{
+
+            display: flex;
+            width : 20em;
+            margin-left: 2em;
+            margin-top: 0.5em;
+            overflow-wrap: break-word;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        #show-typing{
+            margin:4em;
+        }
+        #sourceCode{
+           
+            width : 130%;
+            
+        }
+        #sourceCode-container{
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+        }
+        #message{
+            
+            margin-bottom: 2em;
+        }
+        #main-name{
+            margin-left : 58em;  
+            margin-bottom : 0;
+        }
+        #leave-btn{
+           position: absolute;
+           left : 75em;
+           
+            margin-top : 1em;
+            margin-bottom: 0;
+            width : 8em;
+            height : 35px; 
+            background: #e33327;
+            border: 5px solid  #e33327;
+            border-radius:0.5em; 
+            
+            font-family: 'Lato', sans-serif;
+            color : white;
+            font-size: 1em;
+        }
+      
+        #leave-btn:hover{
+
+            background: #fc8686;
+            border: 5px solid  #fc8686;
+            
+        }
+        #sourceCode-container-mobile{
+            display: none;
+        }
+       
+        #extra-functionality-mobile{
+          display : none;
+        }
+        #online-users-mobile{
+          display : none;
+        }
+        #show-typing-mobile{
+            display:none;
+        }
+        #Send-btn:active {
+            background: #248033;
+            border: 5px solid  #248033;
+
+        }
+        
+
+        @media only screen and (max-width: 414px){
+        
+            body
+            {
+             
+             margin : 0 ;
+             font-family: 'Lato', sans-serif;
+            
+            }
+            header{
+             display: none;
+         }
+        
+         #title-container{
+             display: none;
+         }
+         #title{
+             display: none;
+            
+        }
+      
+            #sourceCode-container{
+               display: none;
+                            
+            }
+            #sourceCode{
+              display : none;
+            }
+            #leave-btn{
+            display : none
+        }
+
+        #sourceCode-container-mobile{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            
+         
+
+        }
+        #Options{
+            width : 25em;
+            height : 70px;
+            margin-top: 1em;
+            margin-bottom: 1.5em;
+            margin-left: 10em;
+            background: #9e9e9e;
+            border: 5px solid  #9e9e9e;
+            color: white;
+            font-family: 'Lato', sans-serif;
+            font-size: 2em;
+            border-radius:0.5em; 
+
+        }
+       
+        #online-users{
+            display: none;
+        }
+        #display-messages{
+            height : 80em;
+            margin-top : 0;
+           
+        }
+        #message{
+            
+          margin-right : 0;
+          margin-bottom: 0.5em;
+            height : 4em;
+
+            font-size: 2em;
+            padding : 0.2em;
+            width : 19em;
+        }
+        #Send-btn{
+            width : 6em;
+            height : 111px; 
+            background: #66915d;
+            border: 5px solid  #66915d;
+            border-radius:0.5em;
+            margin-left: 0.1em; 
+            
+            font-family: 'Lato', sans-serif;
+            color : white;
+            font-size: 2em;
+        }
+        #user-main{
+
+         display: flex;
+         width : 30em;
+         background:  #66915d;
+         border-radius: 3em;
+         border-radius: 1.5em;
+         margin-left: 23em;
+         color: white;
+
+         margin-top: 0.5em;
+         word-break: break-word; 
+         flex-direction: row;
+         justify-content: flex-start;
+         align-items: center;
+
+      }
+
+         #sended-message{
+         margin : 2em;
+         white-space: pre-wrap;
+         word-wrap: break-word;
+         font-size: 2em;
+
+
+
+       }
+       #main-name{
+           font-size: 2em;
+           margin-right: 250em;  
+           margin-left : 25em;
+          
+       }
+       #link{
+           display: none;
+       }
+       #user-diff{
+            display: flex;
+            width : 30em;
+            background: #e6e6e6;
+            border-radius: 3em;
+            border-radius: 1.5em;
+            margin-left: 2em;
+            margin-top: 0.5em;
+            word-break: break-word; 
+            
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+        
+            
+        }
+        #recieved-message{
+            margin : 2em;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 2em;
+            
+        }
+        #name-diff{
+            font-size: 2em;
+            margin-right : 20em; 
+            margin-bottom : 0; 
+            margin-left : 3em;
+        }
+        #extra-functionality-mobile{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-left : 27em;
+        }
+        #online-users-mobile{
+            height : 80em;
+            margin-top : 0;
+            display: none;
+        }
+        #show-typing-mobile{
+            display:block;
+        }
+        #Send-btn:active {
+            background: #248033;
+            border: 5px solid  #248033;
+
+        }
+       
+
+       
+       
+            
+            
+        
+        
+        
+        }
+      
+       
+      
+      
+     
+        
+        
+
+        </style>
+
+
+
+</head>
+<body>
+
+    <header>  
+        <div id = "title-container">
+            <h1 id = "title">Link Up</h1>
+            </div>
+            </header>
+
+         <main>
+             <div id = "sourceCode-container">
+                 <h5 id = "sourceCode"></h5>
+                 <button id = "leave-btn">Leave room</button>
+             </div>
+           
+             <div id = "sourceCode-container-mobile">
+               <input type = "text" id = "link"/>
+                <select id="Options" onchange="selectFunction()">
+                    <option value="Message">Message</option>
+                    <option value="Online-users">Online users</option>
+                    <option value="Copy-link">Copy room code</option>
+                </select>
+            </div>
+            <div id = "extra-functionality-mobile">
+                <input type = "file" id = "imageFile" accept="image/*">
+                <label for = "imageFile"><img src = "https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-512.png" width = "90" height = "90"/></label>
+                
+                <input type = "file" id = "videoFile" accept="video/*">
+                <label for = "videoFile"><img src = "https://cdn0.iconfinder.com/data/icons/thin-files-documents/57/thin-072_file_document_video_recording-512.png" width = "90" height = "90"/></label>
+                 
+                <input type = "file" id = "audioFile" accept="audio/*">
+                <label for = "audioFile"><img src = "https://cdn.iconscout.com/icon/premium/png-256-thumb/audio-file-2326910-1928544.png" width = "90" height = "90"/></label>
+                
+               
+            
+            </div>
+            <div id = "online-users-mobile">
+                <h4 id = "heading" style = "font-size: 2em;">ONLINE USERS</h4>
+
+            </div>
+            <span id = "show-typing-mobile" style = "margin : 0; font-size : 2em;"></span>
+             <div id = "content-container">
+                
+                <div id = "online-users">
+                    <h4 id = "heading" style="font-family: 'Source Code Pro', monospace;">ONLINE USERS</h2>
+                    <div id = "display-users" style = "overflow-y:auto; overflow-x:auto;">
+                        </div>
+                        
+                        <div id = "extra-functionality">
+                            <input type = "file" id = "imageFile" accept="image/*">
+                            <label for = "imageFile"><img src = "https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-512.png" width = "30" height = "30"/></label>
+                            
+                            <input type = "file" id = "videoFile" accept="video/*">
+                            <label for = "videoFile"><img src = "https://cdn0.iconfinder.com/data/icons/thin-files-documents/57/thin-072_file_document_video_recording-512.png" width = "30" height = "30"/></label>
+                             
+                            <input type = "file" id = "audioFile" accept="audio/*">
+                            <label for = "audioFile"><img src = "https://cdn.iconscout.com/icon/premium/png-256-thumb/audio-file-2326910-1928544.png" width = "30" height = "30"/></label>
+                            
+                           
+                        
+                        </div>
+
+                        <div id = "show-typing" style = "margin:0;"></div>
+                        
+                </div>
+              
+               
+                <div id = "messages-container">
+
+                   
+                    <div id = "display-messages">
+                    </div>
+                   
+                    
+                        
+                        <div id = "message-enterer">
+                            <input type = "text" name = "message" id = "message" placeholder="Type a Message"/>
+                           
+                             <button id = "Send-btn">Send</button>
+                            </div>
+                    </div>
+                 </div>
+
+             </main>   
+
+  
+
+    
+   <script src = "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script>
+
+    
+        let socket = io.connect();
+        let typing = false;
+         let SendBtn = document.getElementById('Send-btn');
+         let messageTxt = document.getElementById('message');
+         let link = document.getElementById('link');
+        
+
+         let showTyping = document.getElementById('show-typing');
+
+         let displayMsg = document.getElementById('display-messages');
+
+         let leaveBtn = document.getElementById('leave-btn');
+
+         leaveBtn.addEventListener('click', function(e){
+            window.location.href = '/';
+         })
+        
+     
+
+         let RoomId = "<%=RoomId%>";
+
+         let sourceCode = document.getElementById('sourceCode');
+         sourceCode.innerHTML = `Room code : ${RoomId}`;
+         let roomusers = document.getElementById('display-users');
+         let onlineUsersMobile = document.getElementById('online-users-mobile');
+ 
+         socket.emit('join-room' , RoomId);
+
+
+         socket.on('getUsers' , function(clients){
+
+            roomusers.innerHTML = "";
+            onlineUsersMobile.innerHTML = "";
+
+            for(val in clients)
+            {
+                roomusers.innerHTML += "<p>"+clients[val]+"</p>"
+                onlineUsersMobile.innerHTML += "<p>"+clients[val]+"</p>"
+            }
+
+
+         });
+
+
+         SendBtn.addEventListener('click' , function(){
+
+
+            if(messageTxt.value != '')
+            {
+
+              let userMain = document.createElement('div');
+           
+             
+              userMain.setAttribute('id' , 'user-main');
+             socket.emit('message' ,{message : messageTxt.value});
+             userMain.innerHTML += '<p id = "sended-message">'+messageTxt.value+' </p>' ;
+             messageTxt.value = '';
+             
+             
+
+           
+             displayMsg.innerHTML +='<h5  id = "main-name" > You </h5>'; 
+             displayMsg.appendChild(userMain);
+
+             let scrollPos = displayMsg.scrollTop
+             
+             if(!(scrollPos > displayMsg.scrollPos))
+             displayMsg.scrollTop = displayMsg.scrollHeight;
+             
+            }
+
+
+         });
+ 
+         messageTxt.addEventListener('keydown' , function(e){
+ 
+            if( messageTxt.value != '' && e.keyCode === 13)
+            {
+                SendBtn.click();
+                noType();
+            }else{
+                if(typing == false)
+                {
+                    typing = true;
+                    socket.emit('typing' , {data : 'is typing'});
+                    setTimeout(noType, 5000)
+                }
+            }
+           
+
+         });
+
+
+         function noType()
+         {
+            typing = false;
+            socket.emit('typing' , {data : ''});
+         }
+
+          
+         
+
+     
+
+       
+         socket.on('is-typing' , function(data){
+
+             
+                showTyping.innerHTML = '<h6>'+data.message+'</h6>';
+                document.getElementById('show-typing-mobile').innerHTML = '<h6 style = "margin:0; margin-left : 1.0em;">'+data.message+'</h6>';
+            
+           
+
+             
+         })
+ 
+         socket.on('recieved-message' , function(data){
+
+            let userDiff = document.createElement('div');
+            userDiff.setAttribute('id' , 'user-diff');
+
+            userDiff.style.alignContent = "left";
+              
+              userDiff.innerHTML += '<p id = "recieved-message">'+data.data+'</p>';
+          
+              displayMsg.innerHTML += '<h5  id = "name-diff" style = "margin-right : 20em; margin-bottom : 0; margin-left : 2em;">'+' '+data.username+' '+'</h5>'
+              displayMsg.append(userDiff);
+
+              displayMsg.scrollTop = displayMsg.scrollHeight;
+
+              
+
+            
+
+         });
+
+
+         let inputFile = document.getElementById('imageFile');
+        
+         inputFile.addEventListener('change' , function(e){
+
+            let fileInput = e.target;
+
+            let files;
+            let a_File;
+
+
+            files = fileInput.files;
+
+            a_File = files[0];
+           
+            let fileReader = new FileReader();
+
+            fileReader.onload = function(e){
+
+                let imageData = e.target.result;
+
+                
+
+                let imageMain = document.createElement('div');
+                imageMain.setAttribute('id' , 'image-main');
+
+                let img = document.createElement('img');
+                img.setAttribute('src' , imageData);
+                img.setAttribute('width' , '350');
+             
+
+                imageMain.append(img);
+                displayMsg.innerHTML +='<h5 id = "main-name"> You </h5>';
+                displayMsg.append(imageMain);
+
+                socket.emit('send-Image' , {data : imageData});
+
+            };
+
+         fileReader.readAsDataURL(a_File);
+            
+
+     
+
+
+
+
+
+         });
+
+         socket.on('recieved-image' , function(data){
+
+            let imageDiff = document.createElement('div');
+            imageDiff.setAttribute('id' , 'image-diff');
+
+               let img = document.createElement('img');
+                img.setAttribute('src' , data.data);
+                img.setAttribute('width' , '350');
+             
+
+                imageDiff.append(img);
+
+                displayMsg.innerHTML += '<h5 id = "name-diff" style = "margin-right : 20em; margin-bottom : 0; margin-left : 3em;">'+' '+data.username+' '+'</h5>'
+                displayMsg.append(imageDiff);
+
+                 displayMsg.scrollTop = displayMsg.scrollHeight;
+
+
+
+         });
+
+         let videoInput = document.getElementById('videoFile');
+
+         videoInput.addEventListener('change' , function(e){
+   
+             let videoFile = e.target;
+
+             let vFiles = videoFile.files
+
+             let v_file = vFiles[0];
+
+
+             let fileReader = new FileReader();
+
+             fileReader.onload = function(e){
+
+                let videoData = e.target.result;
+
+                socket.emit('send-video' , {data : videoData});
+
+                
+                let videoMain = document.createElement('div');
+                videoMain.setAttribute('id' , 'video-main');
+
+                let video = document.createElement('video');
+                video.setAttribute('src' , videoData);
+                video.controls = true;
+                video.setAttribute('width' , '350');
+
+             
+
+                videoMain.append(video);
+                displayMsg.innerHTML +='<h5 id = "main-name"> You </h5>';
+                displayMsg.append(videoMain);
+                
+
+
+
+
+             }
+
+             fileReader.readAsDataURL(v_file);
+
+
+         });
+
+
+         socket.on('recieved-video' , function(data){
+
+            
+            let videoDiff = document.createElement('div');
+            videoDiff.setAttribute('id' , 'video-diff');
+
+               let video = document.createElement('video');
+                video.setAttribute('src' , data.data);
+                video.controls = true;
+                video.setAttribute('width' , '350');
+             
+
+                 videoDiff.append(video);
+
+                displayMsg.innerHTML += '<h5 id = "name-diff" style = "margin-right : 20em; margin-bottom : 0; margin-left : 3em;">'+' '+data.username+' '+'</h5>'
+                displayMsg.append(videoDiff);
+
+                 displayMsg.scrollTop = displayMsg.scrollHeight;
+
+         });
+
+         let audioInput = document.getElementById('audioFile');
+        
+
+         audioInput.addEventListener('change' , function(e){
+           
+            audioFile = e.target;
+
+            let A_Files = audioFile.files;
+
+            let a_file = A_Files[0];
+
+            let fileReader = new FileReader();
+
+            fileReader.onload = function(e){
+
+                let audioData = e.target.result;
+
+                 socket.emit('send-audio' , {data : audioData});
+
+
+                 let audioMain = document.createElement('div');
+                 audioMain.setAttribute('id' , 'audio-main');
+
+                 let audio = document.createElement('audio');
+                 audio.setAttribute('src' , audioData);
+                 audio.controls = true;
+                 audio.setAttribute('width' , '350');
+
+
+
+                  audioMain.append(audio);
+                 displayMsg.innerHTML +='<h5 id = "main-name" > You </h5>';
+                 displayMsg.append(audioMain);
+
+
+
+            }
+
+            fileReader.readAsDataURL(a_file);
+
+
+
+         })
+
+         socket.on('recieved-audio' , function(data){
+
+            let audioDiff = document.createElement('div');
+            audioDiff.setAttribute('id' , 'audio-diff');
+
+               let audio = document.createElement('audio');
+                audio.setAttribute('src' , data.data);
+                audio.controls = true;
+                audio.setAttribute('width' , '350');
+             
+
+                 audioDiff.append(audio);
+
+                displayMsg.innerHTML += '<h5 id = "name-diff" style = "margin-right : 20em; margin-bottom : 0; margin-left : 3em;">'+' '+data.username+' '+'</h5>'
+                displayMsg.append(audioDiff);
+
+                 displayMsg.scrollTop = displayMsg.scrollHeight;
+
+         });
+
+       
+         function selectFunction()
+         {
+               let options = document.getElementById('Options').value.toString();
+             if(options== 'Copy-link')
+             {
+
+                let link = document.getElementById('link');
+                link.value = RoomId;
+                link.style.display = 'block';
+                
+                link.select();
+               
+
+                
+                document.execCommand("copy");
+
+                link.style.display = 'none';
+
+               
+                alert("Code copied");
+
+                document.getElementById('Options').value = 'Message';
+
+             
+
+             }
+             if(options == 'Online-users')
+             {
+                
+                document.getElementById('messages-container').style.display = 'none';
+                document.getElementById('online-users-mobile').style.display = 'block';
+
+                document.getElementById('online-users-mobile').style.width = '18em';
+                document.getElementById('online-users-mobile').style.fontSize = '3em';
+                document.getElementById('online-users-mobile').style.textAlign = 'center';
+                
+
+                
+             }
+             if(options == 'Message')
+             {
+                document.getElementById('messages-container').style.display = 'block';
+                document.getElementById('online-users-mobile').style.display = 'none';
+             }
+
+             
+
+
+         }
+
+         
+
+         
+
+         
+
+          
+
+        
+        
+
+
+
+    
+
+
+
+
+
+
+
+       
+
+
+
+
+        
+ 
+
+        </script>
+</body>
+</html>
