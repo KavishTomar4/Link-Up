@@ -74,6 +74,7 @@
             margin-left : 2em;
             height : 2.5em;
             width : 50em;
+            margin-top: 1.5em;
             border-radius: 0.5em;
             border: 0.5px solid  #66915d;
             font-family: 'Lato', sans-serif;
@@ -94,10 +95,14 @@
              display: flex;
              margin-top : 2em;
              width : 55em;
-             overflow-y: scroll;
-             flex-direction: column;
+             overflow-y: auto;
+             flex-direction: column-reverse;
+
              justify-content: flex-start;
              align-items: flex-start;
+          
+             vertical-align: bottom;
+           
              
              
 
@@ -128,7 +133,7 @@
             border-radius: 1.5em;
             margin-left: 35em;
             color: white;
-
+          
             margin-top: 0.5em;
             word-break: break-word; 
             flex-direction: row;
@@ -173,7 +178,7 @@
             margin-top: 0.5em;
             color : white;
             margin-left : 30em;
-            
+            white-space: pre-wrap;
             overflow-wrap: break-word;
             flex-direction: row;
             justify-content: flex-end;
@@ -221,27 +226,18 @@
             
         }
         #audio-main{
-            display: flex;
-            width : 20em;
-            margin-top: 0.5em;
-            
-            margin-left : 30em;
-            
-            overflow-wrap: break-word;
-            flex-direction: row;
-            justify-content: flex-end;
-            align-items: center;
+        
+         display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          align-items: center;
         }
         #audio-diff{
-
-            display: flex;
-            width : 20em;
-            margin-left: 2em;
-            margin-top: 0.5em;
-            overflow-wrap: break-word;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
+       
+           display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          align-items: center;
         }
         #show-typing{
             margin:4em;
@@ -322,6 +318,9 @@
             header{
              display: none;
          }
+         body.keyboard {
+          height: calc(100% + 500px); /* add padding for keyboard */
+       }
         
          #title-container{
              display: none;
@@ -355,7 +354,7 @@
             width : 25em;
             height : 70px;
             margin-top: 1em;
-            margin-bottom: 1.5em;
+            margin-bottom: 2.5em;
             margin-left: 10em;
             background: #9e9e9e;
             border: 5px solid  #9e9e9e;
@@ -370,21 +369,31 @@
             display: none;
         }
         #display-messages{
-            height : 80em;
-            margin-top : 0;
+         min-height : 60em;
+         max-height : 80em;
+            margin-top : 2em;
+           
+            display:flex;
+            overflow-y: scroll;
+            flex-direction: column-reverse;
+            justify-content: flex-start;
+            align-items: flex-start;
+            vertical-align: bottom;
+         
            
         }
         #message{
             
-          margin-right : 0;
-          margin-bottom: 0.5em;
-            height : 4em;
+            margin-right : 0;
+            margin-bottom: 0.5em;
+              height : 4em;
+              font-size: 2em;
+              padding : 0.2em;
+              width : 19em;
+          }
 
-            font-size: 2em;
-            padding : 0.2em;
-            width : 19em;
-        }
-        #Send-btn{
+
+          #Send-btn{
             width : 6em;
             height : 111px; 
             background: #66915d;
@@ -396,6 +405,7 @@
             color : white;
             font-size: 2em;
         }
+       
         #user-main{
 
          display: flex;
@@ -405,8 +415,10 @@
          border-radius: 1.5em;
          margin-left: 23em;
          color: white;
+         position:relative;
 
          margin-top: 0.5em;
+       
          word-break: break-word; 
          flex-direction: row;
          justify-content: flex-start;
@@ -415,18 +427,34 @@
       }
 
          #sended-message{
-         margin : 2em;
+        
          white-space: pre-wrap;
          word-wrap: break-word;
          font-size: 2em;
+        
 
 
 
        }
+       img{
+           margin : 0;
+           position : relative;
+       }
+
+       #image-main{
+
+        margin : 2em;
+         white-space: pre-wrap;
+         word-wrap: break-word;
+         
+        
+
+}
        #main-name{
            font-size: 2em;
            margin-right: 250em;  
            margin-left : 25em;
+          
           
        }
        #link{
@@ -441,7 +469,7 @@
             margin-left: 2em;
             margin-top: 0.5em;
             word-break: break-word; 
-            
+           
             flex-direction: row;
             justify-content: flex-start;
             align-items: center;
@@ -453,6 +481,7 @@
             white-space: pre-wrap;
             word-wrap: break-word;
             font-size: 2em;
+           
             
         }
         #name-diff{
@@ -481,7 +510,25 @@
             border: 5px solid  #248033;
 
         }
+        
+        #image-main{
+
+     display: flex;
+     width : 20em;
+     margin-top: 0.5em;
+     color : white;
+     margin-left : 30em;
+     white-space: pre-wrap;
+     overflow-wrap: break-word;
+     flex-direction: row;
+     justify-content: flex-end;
+     align-items: center;
+
+}
        
+
+
+      
 
        
        
@@ -512,6 +559,8 @@
             </div>
             </header>
 
+            
+
          <main>
              <div id = "sourceCode-container">
                  <h5 id = "sourceCode"></h5>
@@ -524,6 +573,7 @@
                     <option value="Message">Message</option>
                     <option value="Online-users">Online users</option>
                     <option value="Copy-link">Copy room code</option>
+                    <option value="leave-room">Leave Room</option>
                 </select>
             </div>
             <div id = "extra-functionality-mobile">
@@ -543,7 +593,7 @@
                 <h4 id = "heading" style = "font-size: 2em;">ONLINE USERS</h4>
 
             </div>
-            <span id = "show-typing-mobile" style = "margin : 0; font-size : 2em;"></span>
+            
              <div id = "content-container">
                 
                 <div id = "online-users">
@@ -574,11 +624,13 @@
 
                    
                     <div id = "display-messages">
+                       
                     </div>
                    
-                    
+                
                         
                         <div id = "message-enterer">
+                            <span id = "show-typing-mobile" style = "margin : 0; font-size : 2em;"></span>
                             <input type = "text" name = "message" id = "message" placeholder="Type a Message"/>
                            
                              <button id = "Send-btn">Send</button>
@@ -591,412 +643,242 @@
   
 
     
-   <script src = "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+   <script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
     <script>
-
-    
         let socket = io.connect();
-        let typing = false;
-         let SendBtn = document.getElementById('Send-btn');
-         let messageTxt = document.getElementById('message');
-         let link = document.getElementById('link');
-        
+let typing = false;
+ let SendBtn = document.getElementById('Send-btn');
+ let messageTxt = document.getElementById('message');
+ let link = document.getElementById('link');
 
-         let showTyping = document.getElementById('show-typing');
 
-         let displayMsg = document.getElementById('display-messages');
 
-         let leaveBtn = document.getElementById('leave-btn');
 
-         leaveBtn.addEventListener('click', function(e){
-            window.location.href = '/';
-         })
-        
+ let showTyping = document.getElementById('show-typing');
+
+ let displayMsg = document.getElementById('display-messages');
+
+ let leaveBtn = document.getElementById('leave-btn');
+
+ leaveBtn.addEventListener('click', function(e){
+    window.location.href = '/';
+ })
+
+ 
+
+
+
+
+ let RoomId = "<%=RoomId%>";
+
+ let sourceCode = document.getElementById('sourceCode');
+ sourceCode.innerHTML = `Room code : ${RoomId}`;
+ let roomusers = document.getElementById('display-users');
+ let onlineUsersMobile = document.getElementById('online-users-mobile');
+
+ socket.emit('join-room' , RoomId);
+
+
+ socket.on('getUsers' , function(clients){
+
+    roomusers.innerHTML = "";
+    onlineUsersMobile.innerHTML = "";
+
+    for(val in clients)
+    {
+        roomusers.innerHTML += "<p>"+clients[val]+"</p>"
+        onlineUsersMobile.innerHTML += "<p>"+clients[val]+"</p>"
+    }
+
+
+ });
+
+
+ SendBtn.addEventListener('click' , function(){
+
+
+    if(messageTxt.value != '')
+    {
+
+      let userMain = document.createElement('div');
+      let userName = document.createElement('h5');
+      userName.setAttribute('id' , 'main-name');
+    
+     
+      userMain.setAttribute('id' , 'user-main');
+     socket.emit('message' ,{message : messageTxt.value});
+     userMain.innerHTML += '<p id = "sended-message">'+messageTxt.value+' </p>' ;
+     messageTxt.value = '';
+     
      
 
-         let RoomId = "<%=RoomId%>";
-
-         let sourceCode = document.getElementById('sourceCode');
-         sourceCode.innerHTML = `Room code : ${RoomId}`;
-         let roomusers = document.getElementById('display-users');
-         let onlineUsersMobile = document.getElementById('online-users-mobile');
- 
-         socket.emit('join-room' , RoomId);
-
-
-         socket.on('getUsers' , function(clients){
-
-            roomusers.innerHTML = "";
-            onlineUsersMobile.innerHTML = "";
-
-            for(val in clients)
-            {
-                roomusers.innerHTML += "<p>"+clients[val]+"</p>"
-                onlineUsersMobile.innerHTML += "<p>"+clients[val]+"</p>"
-            }
-
-
-         });
-
-
-         SendBtn.addEventListener('click' , function(){
-
-
-            if(messageTxt.value != '')
-            {
-
-              let userMain = document.createElement('div');
-           
-             
-              userMain.setAttribute('id' , 'user-main');
-             socket.emit('message' ,{message : messageTxt.value});
-             userMain.innerHTML += '<p id = "sended-message">'+messageTxt.value+' </p>' ;
-             messageTxt.value = '';
-             
-             
-
-           
-             displayMsg.innerHTML +='<h5  id = "main-name" > You </h5>'; 
-             displayMsg.appendChild(userMain);
-
-             let scrollPos = displayMsg.scrollTop
-             
-             if(!(scrollPos > displayMsg.scrollPos))
-             displayMsg.scrollTop = displayMsg.scrollHeight;
-             
-            }
-
-
-         });
- 
-         messageTxt.addEventListener('keydown' , function(e){
- 
-            if( messageTxt.value != '' && e.keyCode === 13)
-            {
-                SendBtn.click();
-                noType();
-            }else{
-                if(typing == false)
-                {
-                    typing = true;
-                    socket.emit('typing' , {data : 'is typing'});
-                    setTimeout(noType, 5000)
-                }
-            }
-           
-
-         });
-
-
-         function noType()
-         {
-            typing = false;
-            socket.emit('typing' , {data : ''});
-         }
-
-          
-         
-
-     
-
-       
-         socket.on('is-typing' , function(data){
-
-             
-                showTyping.innerHTML = '<h6>'+data.message+'</h6>';
-                document.getElementById('show-typing-mobile').innerHTML = '<h6 style = "margin:0; margin-left : 1.0em;">'+data.message+'</h6>';
-            
-           
-
-             
-         })
- 
-         socket.on('recieved-message' , function(data){
-
-            let userDiff = document.createElement('div');
-            userDiff.setAttribute('id' , 'user-diff');
-
-            userDiff.style.alignContent = "left";
-              
-              userDiff.innerHTML += '<p id = "recieved-message">'+data.data+'</p>';
-          
-              displayMsg.innerHTML += '<h5  id = "name-diff" style = "margin-right : 20em; margin-bottom : 0; margin-left : 2em;">'+' '+data.username+' '+'</h5>'
-              displayMsg.append(userDiff);
-
-              displayMsg.scrollTop = displayMsg.scrollHeight;
-
-              
-
-            
-
-         });
-
-
-         let inputFile = document.getElementById('imageFile');
-        
-         inputFile.addEventListener('change' , function(e){
-
-            let fileInput = e.target;
-
-            let files;
-            let a_File;
-
-
-            files = fileInput.files;
-
-            a_File = files[0];
-           
-            let fileReader = new FileReader();
-
-            fileReader.onload = function(e){
-
-                let imageData = e.target.result;
-
-                
-
-                let imageMain = document.createElement('div');
-                imageMain.setAttribute('id' , 'image-main');
-
-                let img = document.createElement('img');
-                img.setAttribute('src' , imageData);
-                img.setAttribute('width' , '350');
-             
-
-                imageMain.append(img);
-                displayMsg.innerHTML +='<h5 id = "main-name"> You </h5>';
-                displayMsg.append(imageMain);
-
-                socket.emit('send-Image' , {data : imageData});
-
-            };
-
-         fileReader.readAsDataURL(a_File);
-            
-
-     
-
-
-
-
-
-         });
-
-         socket.on('recieved-image' , function(data){
-
-            let imageDiff = document.createElement('div');
-            imageDiff.setAttribute('id' , 'image-diff');
-
-               let img = document.createElement('img');
-                img.setAttribute('src' , data.data);
-                img.setAttribute('width' , '350');
-             
-
-                imageDiff.append(img);
-
-                displayMsg.innerHTML += '<h5 id = "name-diff" style = "margin-right : 20em; margin-bottom : 0; margin-left : 3em;">'+' '+data.username+' '+'</h5>'
-                displayMsg.append(imageDiff);
-
-                 displayMsg.scrollTop = displayMsg.scrollHeight;
-
-
-
-         });
-
-         let videoInput = document.getElementById('videoFile');
-
-         videoInput.addEventListener('change' , function(e){
    
-             let videoFile = e.target;
+     userName.innerHTML +=' You '; 
+     displayMsg.prepend(userName);
+     displayMsg.prepend(userMain);
 
-             let vFiles = videoFile.files
+     messageTxt.focus();
+    
+     let sendAudio = new Audio('http://www.mit.edu/afs/sipb/project/gnome/old-and-dead/share/sounds/gnobots2/bad.wav');
+     sendAudio.play();
 
-             let v_file = vFiles[0];
-
-
-             let fileReader = new FileReader();
-
-             fileReader.onload = function(e){
-
-                let videoData = e.target.result;
-
-                socket.emit('send-video' , {data : videoData});
-
-                
-                let videoMain = document.createElement('div');
-                videoMain.setAttribute('id' , 'video-main');
-
-                let video = document.createElement('video');
-                video.setAttribute('src' , videoData);
-                video.controls = true;
-                video.setAttribute('width' , '350');
-
-             
-
-                videoMain.append(video);
-                displayMsg.innerHTML +='<h5 id = "main-name"> You </h5>';
-                displayMsg.append(videoMain);
-                
+   
+     
+     
+     let scrollPos = displayMsg.scrollTop
+     
+     
+     
+     
+    }
 
 
+ });
+
+ messageTxt.addEventListener('keydown' , function(e){
+
+    if( messageTxt.value != '' && e.keyCode === 13)
+    {
+        SendBtn.click();
+      
+        noType();
+        messageTxt.focus();
+        messageTxt.blur();
+
+   
 
 
-             }
-
-             fileReader.readAsDataURL(v_file);
 
 
-         });
-
-
-         socket.on('recieved-video' , function(data){
+    }else{
+        if(typing == false)
+        {
+            typing = true;
+            socket.emit('typing' , {data : 'is typing'});
+            setTimeout(noType, 5000)
 
             
-            let videoDiff = document.createElement('div');
-            videoDiff.setAttribute('id' , 'video-diff');
+        }
+    }
 
-               let video = document.createElement('video');
-                video.setAttribute('src' , data.data);
-                video.controls = true;
-                video.setAttribute('width' , '350');
-             
+ 
 
-                 videoDiff.append(video);
+   
 
-                displayMsg.innerHTML += '<h5 id = "name-diff" style = "margin-right : 20em; margin-bottom : 0; margin-left : 3em;">'+' '+data.username+' '+'</h5>'
-                displayMsg.append(videoDiff);
-
-                 displayMsg.scrollTop = displayMsg.scrollHeight;
-
-         });
-
-         let audioInput = document.getElementById('audioFile');
-        
-
-         audioInput.addEventListener('change' , function(e){
-           
-            audioFile = e.target;
-
-            let A_Files = audioFile.files;
-
-            let a_file = A_Files[0];
-
-            let fileReader = new FileReader();
-
-            fileReader.onload = function(e){
-
-                let audioData = e.target.result;
-
-                 socket.emit('send-audio' , {data : audioData});
+ });
 
 
-                 let audioMain = document.createElement('div');
-                 audioMain.setAttribute('id' , 'audio-main');
+ function noType()
+ {
+    typing = false;
+    socket.emit('typing' , {data : ''});
+ }
 
-                 let audio = document.createElement('audio');
-                 audio.setAttribute('src' , audioData);
-                 audio.controls = true;
-                 audio.setAttribute('width' , '350');
+  
+ 
 
 
 
-                  audioMain.append(audio);
-                 displayMsg.innerHTML +='<h5 id = "main-name" > You </h5>';
-                 displayMsg.append(audioMain);
 
+ socket.on('is-typing' , function(data){
 
+     
+        showTyping.innerHTML = '<h6>'+data.message+'</h6>';
+        document.getElementById('show-typing-mobile').innerHTML = '<h6 style = "margin:0; margin-left : 1.0em;">'+data.message+'</h6>';
+    
+   
 
-            }
+     
+ })
 
-            fileReader.readAsDataURL(a_file);
+ socket.on('recieved-message' , function(data){
 
+    let userDiff = document.createElement('div');
+    userDiff.setAttribute('id' , 'user-diff');
 
+    let nameDiff = document.createElement('h5');
+    nameDiff.setAttribute('id' , 'name-diff');
+    nameDiff.setAttribute('style' , 'margin-right : 20em; margin-bottom : 0; margin-left : 2em;');
 
-         })
+    userDiff.style.alignContent = "left";
+      
+      userDiff.innerHTML += '<p id = "recieved-message">'+data.data+'</p>';
+  
 
-         socket.on('recieved-audio' , function(data){
+    let recieveAudio = new Audio('http://commondatastorage.googleapis.com/codeskulptor-assets/week7-brrring.m4a');
+     recieveAudio.play();
 
-            let audioDiff = document.createElement('div');
-            audioDiff.setAttribute('id' , 'audio-diff');
-
-               let audio = document.createElement('audio');
-                audio.setAttribute('src' , data.data);
-                audio.controls = true;
-                audio.setAttribute('width' , '350');
-             
-
-                 audioDiff.append(audio);
-
-                displayMsg.innerHTML += '<h5 id = "name-diff" style = "margin-right : 20em; margin-bottom : 0; margin-left : 3em;">'+' '+data.username+' '+'</h5>'
-                displayMsg.append(audioDiff);
-
-                 displayMsg.scrollTop = displayMsg.scrollHeight;
-
-         });
-
+     setTimeout(function(){
        
-         function selectFunction()
-         {
-               let options = document.getElementById('Options').value.toString();
-             if(options== 'Copy-link')
-             {
+        recieveAudio.pause();
 
-                let link = document.getElementById('link');
-                link.value = RoomId;
-                link.style.display = 'block';
-                
-                link.select();
-               
-
-                
-                document.execCommand("copy");
-
-                link.style.display = 'none';
-
-               
-                alert("Code copied");
-
-                document.getElementById('Options').value = 'Message';
-
-             
-
-             }
-             if(options == 'Online-users')
-             {
-                
-                document.getElementById('messages-container').style.display = 'none';
-                document.getElementById('online-users-mobile').style.display = 'block';
-
-                document.getElementById('online-users-mobile').style.width = '18em';
-                document.getElementById('online-users-mobile').style.fontSize = '3em';
-                document.getElementById('online-users-mobile').style.textAlign = 'center';
-                
-
-                
-             }
-             if(options == 'Message')
-             {
-                document.getElementById('messages-container').style.display = 'block';
-                document.getElementById('online-users-mobile').style.display = 'none';
-             }
-
-             
+     } , 1000)
 
 
-         }
 
-         
+      nameDiff.innerHTML += ' '+data.username+' ';
+      displayMsg.prepend(nameDiff);
+      displayMsg.prepend(userDiff);
 
-         
+      //displayMsg.scrollTop = displayMsg.scrollHeight;
 
-         
+      
 
-          
+    
+
+ });
+
+ window.scrollTo(0, document.body.scrollHeight);
+
+
+ let inputFile = document.getElementById('imageFile');
+
+ inputFile.addEventListener('change' , function(e){
+
+    let fileInput = e.target;
+
+    let files;
+    let a_File;
+
+
+    files = fileInput.files;
+
+    a_File = files[0];
+   
+    let fileReader = new FileReader();
+
+    fileReader.onload = function(e){
+
+        let imageData = e.target.result;
 
         
+
+        let imageMain = document.createElement('div');
+        imageMain.setAttribute('id' , 'image-main');
+
+      let userName = document.createElement('h5');
+      userName.setAttribute('id' , 'main-name');
+
+        let img = document.createElement('img');
+        img.setAttribute('src' , imageData);
+        img.setAttribute('width' , '350');
+     
         
+        userName.innerHTML +=' You ';
+      
+        imageMain.append(img);
+        displayMsg.prepend(userName);
+        displayMsg.prepend(imageMain);
+        let sendAudio = new Audio('http://www.mit.edu/afs/sipb/project/gnome/old-and-dead/share/sounds/gnobots2/bad.wav');
+        sendAudio.play();
 
+        socket.emit('send-Image' , {data : imageData});
 
+    };
 
+ fileReader.readAsDataURL(a_File);
+
+ 
     
 
 
@@ -1005,14 +887,253 @@
 
 
 
+ });
+
+
+
+ socket.on('recieved-image' , function(data){
+
+    let imageDiff = document.createElement('div');
+    imageDiff.setAttribute('id' , 'image-diff');
+    
+    let nameDiff = document.createElement('h5');
+    nameDiff.setAttribute('id' , 'name-diff');
+    nameDiff.setAttribute('style' , 'margin-right : 20em; margin-bottom : 0; margin-left : 3em;');
+
+       let img = document.createElement('img');
+        img.setAttribute('src' , data.data);
+        img.setAttribute('width' , '350');
+     
+
+        imageDiff.append(img);
+
+        nameDiff.innerHTML += ' '+data.username+' ';
+        displayMsg.prepend(nameDiff);
+        displayMsg.prepend(img);
+        let recieveAudio = new Audio('http://commondatastorage.googleapis.com/codeskulptor-assets/week7-brrring.m4a');
+         recieveAudio.play();
+
+         displayMsg.scrollTop = displayMsg.scrollHeight;
+
+
+
+ });
+
+ let videoInput = document.getElementById('videoFile');
+
+ videoInput.addEventListener('change' , function(e){
+
+     let videoFile = e.target;
+
+     let vFiles = videoFile.files
+
+     let v_file = vFiles[0];
+
+
+     let fileReader = new FileReader();
+
+     fileReader.onload = function(e){
+
+        let videoData = e.target.result;
+
+        socket.emit('send-video' , {data : videoData});
+
+        
+        let videoMain = document.createElement('div');
+        videoMain.setAttribute('id' , 'video-main');
+
+        let userName = document.createElement('h5');
+        userName.setAttribute('id' , 'main-name');
+
+        let video = document.createElement('video');
+        video.setAttribute('src' , videoData);
+        video.controls = true;
+        video.setAttribute('width' , '350');
+
+     
+
+        videoMain.append(video);
+        userName.innerHTML +=' You ';
+
+        displayMsg.prepend(userName);
+        displayMsg.prepend(videoMain);
+        let sendAudio = new Audio('http://www.mit.edu/afs/sipb/project/gnome/old-and-dead/share/sounds/gnobots2/bad.wav');
+        sendAudio.play();
+        
+
+
+
+
+     }
+
+     fileReader.readAsDataURL(v_file);
+
+
+ });
+
+
+ socket.on('recieved-video' , function(data){
+
+    
+    let videoDiff = document.createElement('div');
+    videoDiff.setAttribute('id' , 'video-diff');
+
+    let nameDiff = document.createElement('h5');
+    nameDiff.setAttribute('id' , 'name-diff');
+    nameDiff.setAttribute('style' , 'margin-right : 20em; margin-bottom : 0; margin-left : 3em;');
+
+       let video = document.createElement('video');
+        video.setAttribute('src' , data.data);
+        video.controls = true;
+        video.setAttribute('width' , '350');
+     
+
+         videoDiff.append(video);
+
+        nameDiff.innerHTML += ' '+data.username+' ';
+        displayMsg.prepend(nameDiff);
+        displayMsg.prepend(videoDiff);
+        let recieveAudio = new Audio('http://commondatastorage.googleapis.com/codeskulptor-assets/week7-brrring.m4a');
+        recieveAudio.play();
+
+        // displayMsg.scrollTop = displayMsg.scrollHeight;
+
+ });
+
+ let audioInput = document.getElementById('audioFile');
+
+
+ audioInput.addEventListener('change' , function(e){
+   
+    audioFile = e.target;
+
+    let A_Files = audioFile.files;
+
+    let a_file = A_Files[0];
+
+    let fileReader = new FileReader();
+
+    fileReader.onload = function(e){
+
+        let audioData = e.target.result;
+
+         socket.emit('send-audio' , {data : audioData});
+
+
+         let audioMain = document.createElement('div');
+         audioMain.setAttribute('id' , 'audio-main');
+
+         let userName = document.createElement('h5');
+         userName.setAttribute('id' , 'main-name');
+
+         let audio = document.createElement('audio');
+         audio.setAttribute('src' , audioData);
+         audio.controls = true;
+      
        
 
 
 
+          audioMain.append(audio);
+         userName.innerHTML +=' You ';
+         displayMsg.prepend(userName);
+         displayMsg.prepend(audioMain);
+         let sendAudio = new Audio('http://www.mit.edu/afs/sipb/project/gnome/old-and-dead/share/sounds/gnobots2/bad.wav');
+         sendAudio.play();
+
+
+
+    }
+
+    fileReader.readAsDataURL(a_file);
+
+
+
+ })
+
+ socket.on('recieved-audio' , function(data){
+
+    let audioDiff = document.createElement('div');
+    audioDiff.setAttribute('id' , 'audio-diff');
+
+    let nameDiff = document.createElement('h5');
+    nameDiff.setAttribute('id' , 'name-diff');
+    nameDiff.setAttribute('style' , 'margin-right : 20em; margin-bottom : 0; margin-left : 3em;');
+
+       let audio = document.createElement('audio');
+        audio.setAttribute('src' , data.data);
+        audio.controls = true;
+    
+     
+
+         audioDiff.append(audio);
+
+        nameDiff.innerHTML += ' '+data.username+' ';
+        displayMsg.prepend(nameDiff);
+        displayMsg.prepend(audioDiff);
+        let recieveAudio = new Audio('http://commondatastorage.googleapis.com/codeskulptor-assets/week7-brrring.m4a');
+        recieveAudio.play();
+
+        // displayMsg.scrollTop = displayMsg.scrollHeight;
+
+ });
+
+
+ function selectFunction()
+ {
+       let options = document.getElementById('Options').value.toString();
+     if(options== 'Copy-link')
+     {
+
+        let link = document.getElementById('link');
+        link.value = RoomId;
+        link.style.display = 'block';
+        
+        link.select();
+       
 
         
- 
+        document.execCommand("copy");
 
-        </script>
+        link.style.display = 'none';
+
+       
+        alert("Code copied");
+
+        document.getElementById('Options').value = 'Message';
+
+     
+
+     }
+     if(options == 'Online-users')
+     {
+        
+        document.getElementById('messages-container').style.display = 'none';
+        document.getElementById('online-users-mobile').style.display = 'block';
+
+        document.getElementById('online-users-mobile').style.width = '18em';
+        document.getElementById('online-users-mobile').style.fontSize = '3em';
+        document.getElementById('online-users-mobile').style.textAlign = 'center';
+        
+
+        
+     }
+     if(options == 'Message')
+     {
+        document.getElementById('messages-container').style.display = 'block';
+        document.getElementById('online-users-mobile').style.display = 'none';
+     }
+     if(options == 'leave-room')
+     {
+        window.location.href = '/';
+        document.getElementById('Options').value = 'Message';
+     }
+
+     
+
+
+ }
+
+    </script>
 </body>
 </html>
