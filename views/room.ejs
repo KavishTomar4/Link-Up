@@ -444,6 +444,7 @@
        img{
            margin : 0;
            position : relative;
+          
        }
 
        #image-main{
@@ -530,6 +531,20 @@
      align-items: center;
 
 }
+
+ #sended-image{
+     width : 30em;
+ }
+ #recieved-image{
+    width : 30em;
+ }
+ #sended-video{
+     width : 150em;
+ }
+ #recieved-video{
+    width : 150em;  
+ }
+
 
     
 
@@ -884,6 +899,7 @@ let typing = false;
         let img = document.createElement('img');
         img.setAttribute('src' , imageData);
         img.setAttribute('width' , '350');
+        img.setAttribute('id' , 'sended-image');
      
         
         userName.innerHTML +=' You ';
@@ -925,6 +941,7 @@ let typing = false;
        let img = document.createElement('img');
         img.setAttribute('src' , data.data);
         img.setAttribute('width' , '350');
+        img.setAttribute('id' , 'revieved-image');
      
 
         imageDiff.append(img);
@@ -971,6 +988,7 @@ let typing = false;
         video.setAttribute('src' , videoData);
         video.controls = true;
         video.setAttribute('width' , '350');
+        video.setAttribute('id' , 'sended-video');
 
      
 
@@ -1008,6 +1026,7 @@ let typing = false;
         video.setAttribute('src' , data.data);
         video.controls = true;
         video.setAttribute('width' , '350');
+        video.setAttribute('id' , 'recieved-video');
      
 
          videoDiff.append(video);
