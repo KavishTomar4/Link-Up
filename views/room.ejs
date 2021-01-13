@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='viewport' content='width=device-width'>
     <title>Room</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@600&family=Josefin+Sans&family=Nova+Flat&family=Oxygen:wght@700&family=Source+Code+Pro&display=swap" rel="stylesheet">
@@ -369,8 +369,8 @@
             display: none;
         }
         #display-messages{
-         min-height : 60em;
-         max-height : 80em;
+         height : 143vh;
+      
             margin-top : 2em;
            
             display:flex;
@@ -390,6 +390,8 @@
               font-size: 2em;
               padding : 0.2em;
               width : 19em;
+          
+                bottom: 6px; 
           }
 
 
@@ -404,6 +406,8 @@
             font-family: 'Lato', sans-serif;
             color : white;
             font-size: 2em;
+           
+                bottom: 6px; 
         }
        
         #user-main{
@@ -525,7 +529,8 @@
      align-items: center;
 
 }
-       
+
+    
 
 
       
@@ -547,11 +552,16 @@
         
 
         </style>
+        <script type="text/javascript">
+            function zoom() {
+                document.body.style.zoom = "100%" ;
+            }
+        </script>
 
 
 
 </head>
-<body>
+<body onload = "zoom()">
 
     <header>  
         <div id = "title-container">
@@ -566,7 +576,7 @@
                  <h5 id = "sourceCode"></h5>
                  <button id = "leave-btn">Leave room</button>
              </div>
-           
+            <div id = "header-mobile">
              <div id = "sourceCode-container-mobile">
                <input type = "text" id = "link"/>
                 <select id="Options" onchange="selectFunction()">
@@ -589,6 +599,11 @@
                
             
             </div>
+            </div>
+            <div class="spacer">
+                &nbsp;
+            </div>
+            <div id = "content-mobile">
             <div id = "online-users-mobile">
                 <h4 id = "heading" style = "font-size: 2em;">ONLINE USERS</h4>
 
@@ -626,10 +641,11 @@
                     <div id = "display-messages">
                        
                     </div>
+               
                    
                 
                         
-                        <div id = "message-enterer">
+                        <div id = "message-enterer" >
                             <span id = "show-typing-mobile" style = "margin : 0; font-size : 2em;"></span>
                             <input type = "text" name = "message" id = "message" placeholder="Type a Message"/>
                            
@@ -637,6 +653,8 @@
                             </div>
                     </div>
                  </div>
+                </div>
+              
 
              </main>   
 
@@ -651,7 +669,7 @@ let typing = false;
  let messageTxt = document.getElementById('message');
  let link = document.getElementById('link');
 
-
+ 
 
 
  let showTyping = document.getElementById('show-typing');
@@ -699,7 +717,7 @@ let typing = false;
 
     if(messageTxt.value != '')
     {
-
+        
       let userMain = document.createElement('div');
       let userName = document.createElement('h5');
       userName.setAttribute('id' , 'main-name');
@@ -717,7 +735,9 @@ let typing = false;
      displayMsg.prepend(userName);
      displayMsg.prepend(userMain);
 
+     noType();
      messageTxt.focus();
+
     
      let sendAudio = new Audio('http://www.mit.edu/afs/sipb/project/gnome/old-and-dead/share/sounds/gnobots2/bad.wav');
      sendAudio.play();
@@ -739,9 +759,10 @@ let typing = false;
 
     if( messageTxt.value != '' && e.keyCode === 13)
     {
+        noType();
         SendBtn.click();
       
-        noType();
+       
         messageTxt.focus();
         messageTxt.blur();
 

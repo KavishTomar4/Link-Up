@@ -6,6 +6,7 @@ let {v4 : uuidV4} = require('uuid');
 let socket = require('socket.io');
 let bodyParser = require('body-parser');
 
+
 let io = socket(server);
 let users = [];
 let userJoined = false;
@@ -14,6 +15,8 @@ let mainUser;
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.static('public'));
 app.set('view engine' , 'ejs');
+
+
 
 app.get('/' , (req , res)=>{
 
@@ -36,8 +39,12 @@ app.post('/joinRoom' , (req , res)=>{
 
     userJoined = true;
 
+    
+
     joinName = req.body.username;
     let sourceRoom = req.body.roomcode;
+
+    
 
   
    res.redirect(`${sourceRoom}`);
@@ -46,8 +53,14 @@ app.post('/joinRoom' , (req , res)=>{
 
 app.get('/:room' , (req , res)=>{
     
-    
+ 
+  
+ 
     res.render('room' , {RoomId : req.params.room});
+   
+
+   
+  
 
 });
 

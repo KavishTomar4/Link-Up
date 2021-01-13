@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Link Up</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@600&family=Josefin+Sans&family=Nova+Flat&family=Oxygen:wght@700&family=Source+Code+Pro&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,6 +23,7 @@
              height : 60px;
              box-shadow: 0 8px 7px -6px black;
          }
+        
         
          #title-container{
              display:flex;
@@ -157,7 +158,34 @@
 
               background: #92d498;
               border: 5px solid  #92d498;
-           } 
+           }
+
+            footer {
+           position : absolute;
+           margin-top: 12em;
+           display: flex;
+           flex-direction: row;
+           justify-content: flex-start;
+           align-items: center;
+    
+          }
+
+          #author{
+              margin-left : 5em; 
+          }
+          #promotion-links{
+              margin-left: 70em;
+              margin-bottom: 0.8em;
+              text-align: center;
+              
+          }
+          #guide{
+              margin:5.5;
+          }
+        #footer-mobile{
+            display:none;
+        } 
+        
 
            @media only screen and (max-width: 414px){
 
@@ -296,6 +324,47 @@
              font-size: 2em;
  
           }
+
+          #footer {
+          
+          display: none;
+
+          }
+          #footer-mobile{
+              width : 26.3em;
+              display: flex;
+              bottom : -44em;
+             
+              background: #e8e8e8;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: center;
+              font-size: 2em;
+              
+          }
+          #author-mobile{
+              margin-bottom: 0;
+              margin-left: 2em;
+          }
+          #guide-mobile{
+              margin-top : 0;
+            
+          }
+          img{
+              width: 2em;
+              margin-right : 0.5em;
+              margin-bottom : 0.5em;
+             
+          }
+          #promotion-links-mobile{
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: center;
+              margin-left: 2em;
+          }
+        
+         
        
 
            }
@@ -305,10 +374,16 @@
        
          </style>
 
+<script type="text/javascript">
+    function zoom() {
+        document.body.style.zoom = "100%" ;
+    }
+</script>
+
      
 
 </head>
-<body>
+<body onload = " zoom()">
 
   <header>  
   <div id = "title-container">
@@ -352,6 +427,28 @@
             </div>
           
           </main>
+
+          <footer id = "footer">
+              <div id = "author">
+                  <h5>By Kavish Tomar</h5>
+                  </div>
+
+                <div id = "promotion-links">
+                    <h5 id = "guide">Follow the developer on</h5>
+                    <a href="https://www.instagram.com/kavish_tomar.4/"><img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" width="30"/></a>&nbsp&nbsp&nbsp&nbsp<a href="https://twitter.com/KavishTomar4"><img src="https://utilitypeopleuk.com/wp-content/uploads/2017/06/twitter-icon-circle-blue-logo-preview.png" width="30"/></a>
+                    </div>  
+              </footer>
+
+              <footer id = "footer-mobile">
+                <div id = "author-mobile">
+                    <h5>By Kavish Tomar</h5>
+                    </div>
+  
+                  <div id = "promotion-links-mobile">
+                      <h5 id = "guide-mobile">Follow the developer on</h5>
+                      <div><a href="https://www.instagram.com/kavish_tomar.4/"><img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" width="30"/></a>&nbsp&nbsp&nbsp&nbsp<a href="https://twitter.com/KavishTomar4"><img src="https://utilitypeopleuk.com/wp-content/uploads/2017/06/twitter-icon-circle-blue-logo-preview.png" width="30"/></a></div>
+                      </div>  
+                  </footer>
 
 
   
