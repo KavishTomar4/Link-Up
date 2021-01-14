@@ -572,7 +572,7 @@
 
 
 </head>
-<body onload = "zoom()">
+<body>
 
     <header>  
         <div id = "title-container">
@@ -690,10 +690,16 @@ let typing = false;
  let leaveBtn = document.getElementById('leave-btn');
 
  leaveBtn.addEventListener('click', function(e){
-    window.location.href = '/';
+  
+
+    if(confirm("do you want to leave?"))
+    {
+          window.location.href = '/';
+    }
+
  })
 
- 
+
 
 
 
@@ -1161,7 +1167,13 @@ let typing = false;
      }
      if(options == 'leave-room')
      {
-        window.location.href = '/';
+
+        if(confirm("do you want to leave?"))
+        {
+          window.location.href = '/';
+        }
+
+
         document.getElementById('Options').value = 'Message';
      }
 
@@ -1170,9 +1182,15 @@ let typing = false;
 
  }
 
- function preventBack() { window.history.forward(); }  
-    setTimeout("preventBack()", 0);  
-    window.onunload = function () { null };  
+ 
+
+ 
+ 
+    
+
+    
+
+
 
 
     </script>
