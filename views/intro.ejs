@@ -407,7 +407,7 @@
               <div id = "user-details-container">
               
                 <form action = "/createRoom" method = "POST" id = "create-room-form" class = "form">    
-                  
+                
                  <input type = "text" id = "username" placeholder="Username" name = "username" />
                  <input type = "submit" value = "Create Room" id = "create-room"/>
                   </form>
@@ -468,11 +468,14 @@
         if(document.getElementById('username').value == '')
              {
                e.preventDefault();
+               document.getElementById('username').style.border = '0.5px solid  #e80000';
               }
 
       
 
     });
+
+    
 
     let createRoomForm = document.getElementById('create-room-form');
     let joinRoomForm = document.getElementById('join-room-form');
@@ -481,14 +484,24 @@
 
     joinRoomBtnReal.addEventListener('click' , function(e){
 
-       
+             if(document.getElementsByClassName('joinName')[0].value == '' || document.getElementById('room-code').value == '')
+              {
+                 
+                e.preventDefault();
+               
+                   
+              }
+              if(document.getElementsByClassName('joinName')[0].value == '')
+              {
+               
+                document.getElementById('joinName').style.border = '0.5px solid  #e80000';
+              }
 
-          
-
-              if(document.getElementsByClassName('joinName')[0].value == '' || document.getElementById('room-code').value == '')
-        {
-            e.preventDefault();
-        }
+              if( document.getElementById('room-code').value == '')
+              {
+              
+                document.getElementById('room-code').style.border = '0.5px solid  #e80000';
+              }
  
       });
 
